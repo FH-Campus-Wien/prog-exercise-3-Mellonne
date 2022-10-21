@@ -4,45 +4,48 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class App {
+
     // Implement all methods as public static
-
-    public static void largestNum(){
-        double num;
-        double largestnum =0;
-        int counter = 1;
-        Scanner scanner;
-        scanner = new Scanner(System.in);
-        do{
-
-
-
-            System.out.print("Number "+counter+": ");
-            num = scanner.nextDouble();
-            if(counter == 1 && num <=0) {
-                System.out.println("No number entered.");
-                return;
-            }
-            else if (num > largestnum){
-                largestnum = num;
-
-            }
-
-            counter++;
-
-        }while(num != 0);
-        String largestnumformatted = String.format("The largest number is %.2f",largestnum);
-        System.out.print(largestnumformatted);
-
-
-    }
-    public static void oneMonthCalender (int numberDay, int startingDay){
-
-    }
     public static long[] lcg(long seed){
+        long m = 2^31;
+        long a = 1103515245;
+        long c = 12345;
+        long randomNumber[];
+        long counter = 0;
+        randomNumber = new long[10];
+        /*for (int i = 0; i<=10; i++) {
+            counter = counter +1;
+            randomNumber[(int)counter] = (int)((a * seed) + c) % m;
+            System.out.println(randomNumber[(int)counter]);
+        }
+        */
 
-        long[] randomNumbers = new long[10];
+        return randomNumber;
+    }
+    public static int checkDigit(int[] numbers){
+        int[] weighting = new int[numbers.length];
+        for(int i=0;i<numbers.length;i++)
+        {
+            weighting[i]=i+2;
+        }
+        int sum=0;
+        for (int i=0;i< numbers.length;i++)
+        {
+            sum = sum + (weighting[i]*numbers[i]);
+        }
+        int restNum = sum%11;
+        int verificationNum =11-restNum;
+        if (verificationNum==10)
+        {
+            return 0;
 
-        return null;
+        }else if(verificationNum==11)
+        {
+            return 5;
+        }else
+        {
+            return verificationNum;
+        }
     }
 
     public static void main(String[] args) {
@@ -50,6 +53,8 @@ public class App {
         // make method calls
         // print their results
         // etc.
-        largestNum();
+
+        lcg(2);
+
     }
 }
