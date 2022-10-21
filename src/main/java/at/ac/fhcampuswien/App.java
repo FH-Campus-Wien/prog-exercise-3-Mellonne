@@ -47,14 +47,36 @@ public class App {
             return verificationNum;
         }
     }
+    public static boolean swapArrays(int[] arr1, int[] arr2)
+    {
 
+
+        System.out.println(arr1[1]);
+        if(arr1.length==arr2.length) {
+            int[] arrtemp;
+            arrtemp = new int[arr1.length];
+            for(int i =0; i <=arr1.length;i++)
+            {
+                arrtemp[i] = arr1[i];
+                arr1[i] = arr2[i];
+                arr2[i] = arrtemp[i];
+            }
+            return true;
+        }
+        else
+            return false;
+    }
     public static void main(String[] args) {
         // test your method implementations here
         // make method calls
         // print their results
         // etc.
+        int[] arr1 = {0,6,37,8,9};
+        int[] arr2 = {1,2,3,4,5};
 
-        lcg(2);
+        //lcg(2);
+
+
 
     }
 }
