@@ -6,6 +6,39 @@ import java.util.Scanner;
 public class App {
 
     // Implement all methods as public static
+
+    public static void oneMonthCalendar(int numberDay, int startingDay)
+    {
+        int row = 0;
+        int column = 0;
+
+        for(int a = 1; a <=7; a++){
+            if(a == startingDay){
+                for(int i =1; i<=numberDay;i++){
+                    System.out.printf("%,2d ",i);
+                    column++;
+                    if(column%7 == 0){
+                        if(row <=4){
+                            System.out.println("");
+                        }
+                        row++;
+
+                    }
+                }
+            }else if(column<startingDay){
+                System.out.print("   ");
+                column++;
+            }
+            if(numberDay<=2){
+                System.out.print("");
+            }
+
+
+        }
+        if(column%7!=0){
+            System.out.println();
+        }
+    }
     public static long[] lcg(long seed){
         long m = 2^31;
         long a = 1103515245;
@@ -47,12 +80,17 @@ public class App {
             return verificationNum;
         }
     }
-    public static boolean swapArrays(int[] arr1, int[] arr2)
+     public static boolean swapArrays(int[] arr1, int[] arr2)
     {
 
+        boolean booleanFlag;
 
         System.out.println(arr1[1]);
-        if(arr1.length==arr2.length) {
+        if(arr1.length!=arr2.length)
+        {
+           booleanFlag = false;
+        }
+        else{
             int[] arrtemp;
             arrtemp = new int[arr1.length];
             for(int i =0; i <=arr1.length;i++)
@@ -61,10 +99,9 @@ public class App {
                 arr1[i] = arr2[i];
                 arr2[i] = arrtemp[i];
             }
-            return true;
+            booleanFlag = true;
         }
-        else
-            return false;
+        return booleanFlag;
     }
     public static void main(String[] args) {
         // test your method implementations here
@@ -75,8 +112,7 @@ public class App {
         int[] arr2 = {1,2,3,4,5};
 
         //lcg(2);
-
-
+        oneMonthCalendar(31,3);
 
     }
 }
