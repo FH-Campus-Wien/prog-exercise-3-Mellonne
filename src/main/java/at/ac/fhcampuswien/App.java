@@ -7,6 +7,42 @@ public class App {
 
     // Implement all methods as public static
 
+    public static void guessingGame(int numberToGuess){
+        Scanner scanner;
+        scanner = new Scanner(System.in);
+        int goalnumber = numberToGuess;
+        for(int i=1;i<=10;i++)
+        {
+            int guess;
+            int counter =1;
+            if(i<10) {
+
+                System.out.print("Guess number "+i+": ");
+                guess = scanner.nextInt();
+                if(guess == goalnumber){
+                    System.out.println("You won wisenheimer!");
+                    break;
+                }
+                else if(guess < goalnumber){
+                    System.out.println("The number AI picked is higher than your guess.");
+                }
+                else if (guess > goalnumber) {
+                    System.out.println("The number AI picked is lower than your guess.");
+                }
+            }
+            else if(i == 10)
+            {
+                System.out.print("Guess number "+i+": ");
+                guess = scanner.nextInt();
+                if(guess == goalnumber){
+                    System.out.println("You won wisenheimer!");
+                    break;
+                }
+                System.out.println("You lost! Have you ever heard of divide & conquer?");
+                break;
+            }
+        }
+    }
     public static void oneMonthCalendar(int numberDay, int startingDay)
     {
         int row = 0;
@@ -113,6 +149,7 @@ public class App {
 
         //lcg(2);
         oneMonthCalendar(31,3);
+        guessingGame(76);
 
     }
 }
